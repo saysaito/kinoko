@@ -1,0 +1,46 @@
+{% extends 'vote/base.html' %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h1 class="display-4 mb-4">投票結果</h1>
+    <p class="lead">総投票数: {{ total_votes }}票</p>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title mb-4">きのこの山</h5>
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-primary result-bar" role="progressbar" 
+                         style="width: {{ kinoko_data.percentage }}%" 
+                         aria-valuenow="{{ kinoko_data.percentage }}" 
+                         aria-valuemin="0" 
+                         aria-valuemax="100">
+                    </div>
+                </div>
+                <p class="text-end mb-0">{{ kinoko_data.count }}票 ({{ kinoko_data.percentage }}%)</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title mb-4">タケノコの里</h5>
+                <div class="progress mb-2">
+                    <div class="progress-bar bg-success result-bar" role="progressbar" 
+                         style="width: {{ takenoko_data.percentage }}%" 
+                         aria-valuenow="{{ takenoko_data.percentage }}" 
+                         aria-valuemin="0" 
+                         aria-valuemax="100">
+                    </div>
+                </div>
+                <p class="text-end mb-0">{{ takenoko_data.count }}票 ({{ takenoko_data.percentage }}%)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{% url 'index' %}" class="btn btn-primary">もう一度投票する</a>
+</div>
+{% endblock %} 

@@ -1,0 +1,41 @@
+{% extends 'vote/base.html' %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h1 class="display-4 mb-4">どちらが好きですか？</h1>
+    <p class="lead">あなたの好きな方に投票してください！</p>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <form method="post" class="d-flex flex-column align-items-center">
+            {% csrf_token %}
+            <div class="card snack-card mb-4" style="width: 18rem;" onclick="document.getElementById('kinoko').click();">
+                <img src="https://placehold.co/300x200/87CEEB/FFF?text=きのこの山" class="card-img-top" alt="きのこの山">
+                <div class="card-body text-center">
+                    <h5 class="card-title">きのこの山</h5>
+                    <input type="radio" name="choice" id="kinoko" value="kinoko" class="d-none">
+                    <button type="submit" class="btn btn-primary">投票する</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-5">
+        <form method="post" class="d-flex flex-column align-items-center">
+            {% csrf_token %}
+            <div class="card snack-card mb-4" style="width: 18rem;" onclick="document.getElementById('takenoko').click();">
+                <img src="https://placehold.co/300x200/98FB98/FFF?text=タケノコの里" class="card-img-top" alt="タケノコの里">
+                <div class="card-body text-center">
+                    <h5 class="card-title">タケノコの里</h5>
+                    <input type="radio" name="choice" id="takenoko" value="takenoko" class="d-none">
+                    <button type="submit" class="btn btn-primary">投票する</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{% url 'results' %}" class="btn btn-secondary">結果を見る</a>
+</div>
+{% endblock %} 
