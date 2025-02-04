@@ -14,14 +14,7 @@ eggs/
 lib/
 lib64/
 parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Django
-*.log
+sdist/git
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
